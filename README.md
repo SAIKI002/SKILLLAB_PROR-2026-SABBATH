@@ -55,7 +55,7 @@ By the final review, this README should clearly show:
 
 # 1. Team Identity
 
-## 1.1 Studio / Group Name
+## 1.1 Sabbath
 
 `Project^2`
 
@@ -63,12 +63,14 @@ By the final review, this README should clearly show:
 
 | Name                  | Primary Role                    | Secondary Role   | Strengths Brought to the Project |
 | --------------        | ------------------------------- | --------------   | -------------------------------- |
-| `Mrugendra Vasmatkar` | `[Electronics / Coding / App ]` | `Documentation`  | `Documentation, Gift of Gab `|
-| `Jyoti Bagate`        | `[Electronics / Fabrication]`   | `[Coding]`       | `Material Handling, Hardware`    |
+| `Shlok Shety` | `[Electronics / Coding / App ]` | `Documentation`  | `Documentation, Gift of Gab `|
+| `Rahul Vidwans`        | `[Electronics / Fabrication]`   | `[Coding]`       | `Material Handling, Hardware`    |
+| `Samruddhi Shimpi`        | `[Electronics / Fabrication]`   | `[Coding]`       | `Material Handling, Hardware`    |
+| `Atharva Chaudhari`        | `[Electronics / Fabrication]`   | `[Coding]`       | `Material Handling, Hardware`    |
 
 ## 1.3 Project Title
 
-`"Project Project"`
+`Realtime edge detection using FPGA`
 
 `(because Project-or)`
 
@@ -76,15 +78,16 @@ By the final review, this README should clearly show:
 
 ## 1.4 One-Line Pitch
 
-`A projected, fully customizable time portal where engineering education is done through PUBG battlefield in the comfort of our home`
+`A real-time FPGA-accelerated edge detection system using the PYNQ-Z2 board that processes live camera input and generates high-speed edge-enhanced output using DSP-based image processing.`
 
 ## 1.5 Expanded Project Idea
 
-In 1–2 paragraphs, explain:
+- This project focuses on implementing a real-time edge detection system using an FPGA-based hardware accelerator on the PYNQ-Z2 platform. The system captures live video input from a webcam, preprocesses the image using Python and OpenCV inside a Jupyter Notebook environment, and sends the grayscale image to a custom FPGA IP core through AXI DMA for high-speed edge detection processing. The processed edge-detected output is then displayed in real time on an external monitor.
 
-- what your project is,
-- what kind of experience it creates,
-- what technologies are involved.
+- The main goal of the project is to demonstrate the power of FPGA-based parallel processing for image processing applications. Unlike CPU-based image processing, where pixels are processed sequentially, the FPGA processes multiple operations simultaneously using DSP48 hardware blocks, pipelining, and streaming architectures. The project implements Scharr/Canny-inspired edge detection using pure Verilog RTL design without relying on HLS tools, making it a fully hardware-oriented implementation.
+
+- The project combines computer vision and FPGA hardware acceleration into one integrated system. It demonstrates how hardware/software co-design can achieve low-latency real-time image processing suitable for robotics, surveillance, autonomous systems, medical imaging, and smart vision applications.
+
 
 **Response:**  
 `A projected and fully customizable time portal can transform engineering education into an immersive PUBG-style battlefield experience from the comfort of home. In this environment, students can learn engineering concepts by entering a virtual battlefield where challenges, obstacles, and missions are designed around real technical problems. Instead of passively studying theory, learners actively apply concepts such as electronics, coding, sensors, robotics, mechanics, and system design to complete missions, solve problems, and progress through different levels. This approach makes engineering education more interactive, engaging, and practical by combining gaming, simulation, and hands-on problem-solving in a familiar and exciting format.`
@@ -99,13 +102,13 @@ List what inspired the project.
 
 | Source Type | Title / Link                                                        | What Inspired You                                                                         |
 | ----------- | ------------------------------------------------------------------- | ----------------------------------------------------------------------------------------- |
-| `[Video]`   | `https://www.instagram.com/reel/DW4CT7WCDry/?igsh=cXg3dzAxYmdncDBo` | `How projection mapping can be used to create interactive digital + physical experiences` |
+| `[Video]`   | `https://youtu.be/Ut5s4rImEhI?si=zgon5YOzGiYfu-Zj` | `How the company is using it's tech to perform image scans` |
 |             |                                                                     |                                                                                           |
 |             |                                                                     |                                                                                           |
 
 ## 2.2 Original Twist
 
-What makes your project original?
+This project combines Scharr-based gradient computation with a Canny-inspired edge detection pipeline implemented on FPGA using pure Verilog RTL and DSP48 hardware acceleration on the PYNQ-Z2 platform. Unlike traditional software-based image processing, the system performs real-time edge detection using AXI DMA and streaming FPGA architecture for low-latency live video processing.
 
 **Response:**  
 
