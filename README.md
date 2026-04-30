@@ -119,7 +119,8 @@ This project combines Scharr-based gradient computation with a Canny-inspired ed
 
 ## 3.1 User Journey 
 
-Describe exactly how a user will use the project.Make it a story
+The user starts the system through a Jupyter Notebook, and the webcam begins capturing live video. The normal camera feed quickly transforms into an edge-detected view, where only the outlines of objects are visible. As the user moves their hand or objects, the edges update instantly in real time. The FPGA processes each frame continuously, providing fast and smooth output with minimal delay.This system demonstrates how edge detection is used in real-world applications such as autonomous vehicles (lane detection), surveillance systems, medical imaging, robotics, and object detection systems.
+
 **Response:**  
 
                                                   |
@@ -131,19 +132,25 @@ Describe exactly how a user will use the project.Make it a story
 # 4. Definition of Success
 
 ## 4.1 Definition of “Usable”
-
-
+In this project, the system is considered usable when the live image feed is captured and processed continuously without interruption, the FPGA correctly performs edge detection on incoming frames, and the output displays clear, stable edges in real time. Additionally, the data transfer through DMA must operate reliably without crashes or delays, ensuring smooth and consistent overall performance.
 
 ## 4.2 Minimum Usable Version
 
-What is the smallest version of this project that still delivers the core experience?
+The smallest version of this project that still delivers the core experience consists of a basic real-time pipeline where a laptop camera captures live video, the image is converted to grayscale using Python/OpenCV, and the frames are sent to the FPGA through AXI DMA. The FPGA then performs simple Iimage's edge detection algorithm and returns the processed output, which is displayed on the screen in real time.
 
 **Response:**  
 
 
 ## 4.3 Stretch Features
 
-What features are nice to have but not essential?
+- Implementation of full Canny edge detection (including non-maximum suppression and hysteresis)
+- Adjustable threshold values through user input
+- Support for multiple edge detection filters (Sobel, Scharr, Laplacian switching)
+- HDMI-based direct video output from FPGA
+- Real-time resolution scaling (720p / 1080p support)
+- On-screen display of FPS or performance metrics
+- Hardware-based grayscale conversion instead of software preprocessing
+- User interface for selecting modes or tuning parameters
 
 
 ---
@@ -158,23 +165,23 @@ Check all that apply.
 
 - [ ] Mechanical
 
-- [x] Sensor-based
+- [ ] Sensor-based
 
 - [x] App-connected
 
-- [x] Motorized
+- [ ] Motorized
 
 - [ ] Sound-based
 
 - [x] Light-based
 
-- [x] Screen/UI-based
+- [ ] Screen/UI-based
 
-- [x] Fabricated structure
+- [ ] Fabricated structure
 
-- [x] Game logic based
+- [ ] Game logic based
 
-- [x] Installation
+- [ ] Installation
 
 - [ ] Other:
 
@@ -247,13 +254,8 @@ Add a sketch with labels showing:
 
 | Component                 | Quantity | Purpose                               |
 | ------------------------- | --------:| ------------------------------------- |
-| `[Raspi/FPGA]`                 | `1`      | `[Main controller]`                   |
-| `[L298N Motor Driver]`    | `1`      | `[Control Motors]`                    |
-| `[BO Motors]`             | `2`      | `[Rotate wheels]`                     |
-| `[Buck Converter]`        | `1`      | `[Power ESP32]`                       |
-| `[Li Ion Battery Pack]`   | `2`      | `[Power]`                             |
-| `[Projector]`             | `1`      | `[Display obstacles]`                 |
-| `Camera (Webcam / Phone)` | `1`      | `[Tracks car position using markers]` |
+| `FPGA`                 | `1`      | `[Main controller]`                   |
+| `Laptop`    | `1`      | `As a camera device`                    |
 
 ## 7.2 Wiring Plan
 
@@ -292,10 +294,9 @@ Insert a hand-drawn or software-made circuit diagram.
 
 | Tool / Platform                | Purpose                                        |
 | ------------------------------ | ---------------------------------------------- |
-| `[MicroPython]`                | `Control ESP32`                                |
-| `[Python/PyGame/OpenCV]`       | `Track markers, game logic, create projection` |
-| `[Fusion/Blender/Illustrator]` | `[Prototyping structure]`                      |
-|                                |                                                |
+| `Vivado`                | `used to design, implement, and generate the FPGA hardware (edge detection IP and system architecture).`                                |
+| `Jupyter notebook`       | `used to control the system, capture and preprocess images, and communicate with the FPGA using DMA.` |
+
 
 ## 8.2 Software Logic/Algorithm
 
@@ -357,15 +358,14 @@ Suggested sequence:
 
 | Item                             | Quantity | In Kit? | Need to Buy? | Estimated Cost | Material / Spec               | Why This Choice?          |
 | -------------------------------- | --------:| ------- | ------------ | --------------:| ----------------------------- | ------------------------- |
-| `[RASPI]`                        | `1`      | `Yes`   | `No`         | `0`            | `38 Pin ESP32`                | `[To control components]` |
-| `[Motor Driver]`                 | `[1]`    | `[Yes]` | `[No]`       | `0`            | `[LN296]`                     | `[To drive both motors]`  |
-| `[DC Motors and wheel]`          | `[2]`    | `[No]`  | `[Yes]`      | `[150]`        | `[BO Motors and 6 cm wheels]` | `[high torque motors]`    |
-| `[Buck Converter]`               | `[1]`    | `[No]`  | `[Yes]`      | `[75]`         |                               |                           |
-| `[Li-ion batteries with holder]` | `[1]`    | `[No]`  | `[Yes]`      | `[200]`        |                               |                           |
+| `PYNQ-Z2 board`                        | `1`      | `Yes`   | `No`         | `₹25K`            | `xc7z020clg400-1`                | `Due to inbuilt access of Jupyter notebook` |
+
 
 ## 9.2 Material Justification
 
-Explain why you selected your main materials and components.
+The PYNQ-Z2 board (xc7z020clg400-1) was selected as the main platform because it combines an FPGA with an embedded processor, allowing both hardware acceleration and software control in a single system. One of the key reasons for choosing this board is its built-in support for Jupyter Notebook, which simplifies development by enabling Python-based control, image preprocessing, and easy interaction with the FPGA through AXI DMA.
+
+This combination makes the development process faster and more accessible compared to traditional FPGA workflows, while still allowing low-level hardware implementation using Verilog in Vivado. Overall, the board provides an ideal balance between ease of use, flexibility, and powerful real-time processing capabilities required for this project.
 
 **Response:**  
 `DC motors (BO motors) were chosen instead of servos or steppers because the system requires continuous rotation for movement rather than precise angular control (Previously, we were considering using steppers as we were planning on tracking movement on the ESP using its relative position from an origin, but since we're using a camera now, this is not required). A motor driver (L298N) was used to allow bidirectional control and speed variation using PWM.`
@@ -375,9 +375,8 @@ Explain why you selected your main materials and components.
 
 | Item                 | Why Needed               | Purchase Link | Latest Safe Date to Procure | Status       |
 | -------------------- | ------------------------ | ------------- | --------------------------- | ------------ |
-| `BO Motors + Wheels` | `Drive system for car`   | `robu.in`     | `15th April`                | `[Received]` |
-| `Buck Converter`     | `Stable power for ESP32` | `local store` | `before testing`            | `[Received]` |
-| `Li-ion Batteries`   | `Portable power`         | `local store` | `before testing`            | `Recieved`   |
+| `PYNQ board (xc7z020clg400-1)` | `it enables real-time FPGA processing with easy control through built-in Jupyter Notebook.`   | `none`     | `-`                | `[Received]` |
+
 
 ## 9.4 Budget Summary
 
@@ -392,7 +391,7 @@ Explain why you selected your main materials and components.
 
 ## 9.5 Budget Reflection
 
-If your cost is too high, what can be simplified, removed, substituted, or shared?
+If the cost becomes too high, the system can be simplified by using a basic USB webcam instead of a high-end camera and relying on a laptop display instead of an external monitor or HDMI setup. Components like additional cables, adapters, or extra peripherals can be minimized or shared among team members. The processing setup can remain focused on the PYNQ-Z2 board without adding extra hardware modules, since it already provides both FPGA and processor capabilities. This keeps the project functional while reducing overall cost
 
 **Response:**  
 
