@@ -653,9 +653,7 @@ What did you learn about:
 
 **Response:**  
 
-```text
-The project provided practical experience with FPGA-based image processing, AXI DMA communication, Verilog RTL development, DSP48 hardware acceleration, and Python/OpenCV integration. The team also learned how hardware/software co-design improves real-time processing performance.
-```
+`The project provided practical experience with FPGA-based image processing, AXI DMA communication, Verilog RTL development, DSP48 hardware acceleration, and Python/OpenCV integration. The team also learned how hardware/software co-design improves real-time processing performance.`
 
 ---
 
@@ -672,7 +670,7 @@ What did you learn about:
 
 **Response:**  
 
-The project highlighted the importance of simplifying system architecture, optimizing real-time pipelines, and continuously refining image processing quality through testing and iteration. Clear visualization and stable processing were important for improving the overall user experience.
+`The project highlighted the importance of simplifying FPGA system architecture, optimizing real-time image processing pipelines, and continuously refining Canny-based edge detection quality through testing and iteration. The team also learned about the working principles of the Canny edge detection algorithm and its implementation on FPGA hardware.`
 
 ---
 
