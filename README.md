@@ -211,23 +211,24 @@ Include:
 
 ## 5.3 Input / Output Map
 
-```text
-| System Part            | Type                  | What It Does                                              |
-|------------------------|-----------------------|-----------------------------------------------------------|
-| Laptop Webcam          | Input                 | Captures live video frames                                |
-| Python/OpenCV          | Processing            | Converts frames into grayscale and preprocesses the image |
-| AXI DMA                | Data Transfer         | Transfers image frames between the processor and FPGA     |
-| FPGA Edge Detection IP | Processing            | Performs edge detection operations                        |
-| DSP48 Blocks           | Hardware Acceleration | Accelerates convolution and arithmetic operations         |
-| Jupyter Notebook       | Control Interface     | Controls the FPGA overlay and processing pipeline         |
-| Laptop Display         | Output                | Displays the real-time edge-detected video output         |
-```
+| System Part | Type | What It Does |
+| ------------------------- | --------:| ------------------------------------- |
+| `Laptop Webcam` | `Input` | `Captures live video frames` |
+| `Python/OpenCV` | `Processing` | `Converts frames into grayscale and preprocesses the image` |
+| `AXI DMA` | `Data Transfer` | `Transfers image frames between the processor and FPGA` |
+| `FPGA Edge Detection IP` | `Processing` | `Performs edge detection operations` |
+| `DSP48 Blocks` | `Hardware Acceleration` | `Accelerates convolution and arithmetic operations` |
+| `Jupyter Notebook` | `Control Interface` | `Controls the FPGA overlay and processing pipeline` |
+| `Laptop Display` | `Output` | `Displays the real-time edge-detected video output` |
+
 
 # 6. System Design, Sketches and Visual Planning 
 
 ## 6.1 Concept Architecture/sketch/schematic
 
 Add an early sketch of the full idea.
+
+## System block Design 
 
 ![System Block Design](images/system_block_design.jpeg)
 
@@ -242,6 +243,8 @@ Add a sketch with labels showing:
 - user touch points,
 - moving parts,
 - output elements.
+
+## FPGA Edge Detection Architecture
 
 ![FPGA Edge Detection Architecture](images/fpga_edge_detection_architecture.png)
 
@@ -568,11 +571,8 @@ Suggested images:
 
 ![Canny Test Output](images/canny_test_output.jpeg)
 
----
 
-## FPGA Edge Detection Architecture
-
-![FPGA Architecture](images/fpga_edge_detection_architecture.png)
+[▶ Live Real-Time FPGA Output](images/Live_test_output.mp4)
 
 ---
 
