@@ -416,7 +416,9 @@ Include:
 
 **Response:**  
 
-```markdown id="x8m4qp"
+Tasks were divided based on software, FPGA design, testing, and documentation responsibilities. Major technical decisions were discussed and finalized together after testing feasibility on the PYNQ-Z2 platform. Progress was continuously checked during implementation and debugging sessions. If a task was delayed, both team members worked together to resolve the issue and continue integration. Documentation was updated throughout development to maintain proper records of testing, architecture, and implementation details.
+
+---
 
 ## 10.2 Task Breakdown
 
@@ -431,22 +433,24 @@ Include:
 | T7 | Debugging and Testing | 0.5 | 30 April 2026 | T6 | Done |
 | T8 | Documentation | 0.5 | 1 May 2026 | T7 | Ongoing |
 
+---
+
 ## 10.3 Responsibility Split
 
-| Area                 | Main Owner     | Support Owner |
-| -------------------- | ----------     | ------------- |
-| Concept              | `[Mrugendra]`  | `[Jyoti]`     |
-| Electronics          | `[]`           | `[]`          |
-| Coding               | `[]`           | `[]`          |
-| Mechanical build     | `[]`           | `[]`          |
-| Testing              | `[]`           | `[]`          |
-| Documentation        | `[]`           | `[]`          |
+| Area | Main Owner | Support Owner |
+|---|---|---|
+| Concept | `Mrugendra` | `Jyoti` |
+| Electronics | `Mrugendra` | `Jyoti` |
+| Coding | `Jyoti` | `Mrugendra` |
+| FPGA Design | `Mrugendra` | `Jyoti` |
+| Testing | `Jyoti` | `Mrugendra` |
+| Documentation | `Both` | `-` |
 
 ---
 
-# 11 hour Milestones
+# 11 Hour Milestones
 
-## 11.1 8-hour Plan(tentetively you may set)
+## 11.1 8-hour Plan (Tentative)
 
 ### Bi Hour 1 — Plan and De-risk
 
@@ -490,6 +494,8 @@ Expected outcomes:
 - [x] Documentation completed
 - [x] Final build ready
 
+---
+
 ## 12.2 Update Log
 
 | Days | Planned Goal | What Actually Happened | What Changed | Next Steps |
@@ -498,6 +504,7 @@ Expected outcomes:
 | 30 April 2026 | Develop preprocessing pipeline | Implemented webcam capture and grayscale conversion | Added image preprocessing | Integrate FPGA processing |
 | 30 April 2026 | Develop FPGA IP | Implemented Verilog edge detection module | Optimized DSP48 processing | Test DMA transfers |
 | 30 April 2026 | Debug and testing | Achieved real-time edge detection output | Improved edge clarity | Complete documentation |
+
 ---
 
 # 13. Risks and Unknowns
@@ -509,6 +516,7 @@ Expected outcomes:
 | AXI DMA transfer failure or frame delay | `Technical` | `Medium` | `High` | Verify DMA configuration, reset buffers properly, and optimize data transfer pipeline | `Both` |
 | Noisy or unclear edge output | `Technical` | `Medium` | `Medium` | Improve preprocessing, Gaussian filtering, and threshold tuning | `Both` |
 
+---
 
 ## 13.2 Biggest Unknown Right Now
 
@@ -518,7 +526,7 @@ Expected outcomes:
 
 ---
 
-# 14. Testing 
+# 14. Testing
 
 ## 14.1 Technical Testing Plan
 
@@ -529,7 +537,9 @@ Expected outcomes:
 | FPGA edge detection IP | Process live frames through the Verilog RTL module | Correct edge-detected output is generated |
 | DSP48-based processing | Verify convolution and Sobel operations in Vivado | DSP operations function correctly during processing |
 | Real-time processing | Run continuous live video pipeline | Output displays smoothly with low latency |
-                       
+
+---
+
 ## 14.2 Testing and Debugging Log
 
 | Date | Problem Found | Type | What You Tried | Result | Next Action |
@@ -538,19 +548,19 @@ Expected outcomes:
 | `30 April 2026` | `Edge output contained noise` | `Technical` | `Added Gaussian blur and postprocessing filters` | `Improved output quality` | `Tune threshold values further` |
 | `30 April 2026` | `Frame delay during live processing` | `Technical` | `Optimized streaming pipeline and preprocessing` | `Reduced latency` | `Improve real-time performance` |
 
+---
 
 ## 14.3 Playtesting Notes
 
-| Tester      | What They Did                        | What Confused Them                    | What They Enjoyed                         | What You Will Change                          |
-| ----------- | ------------------------------------ | ------------------------------------- | ----------------------------------------- | --------------------------------------------- |
-| `Gopal` | `Tried navigating through obstacles` | `Some obstacles ewren't clear enough` | `Liked projection + real car interaction` | `Add a slight red highlight around obstacles` |
-
+| Tester | What They Did | What Confused Them | What They Enjoyed | What You Will Change |
+|---|---|---|---|---|
+| `Gopal` | `Tested the live FPGA edge detection output` | `Some edges appeared noisy under low lighting` | `Liked the real-time edge detection and low latency output` | `Improve preprocessing and threshold tuning` |
 
 ---
 
 # 15. Build Documentation
 
-## 15.1 Fabrication Process(if any)
+## 15.1 Fabrication Process (if any)
 
 Describe how the project was physically made.
 
@@ -565,24 +575,18 @@ Include:
 - revisions.
 
 **Response:**  
+
 NA
 
-## 16 Build Photos
+---
 
-Add photos throughout the project.
+# 16. Build Photos
 
-Suggested images:
-
-- early sketch,
-- prototype,
-- electronics testing,
-- mechanism test,
-- app screenshot,
-- final build.
-- 
 ## Canny Edge Detection Test Output
 
 ![Canny Test Output](images/canny_test_output.jpeg)
+
+---
 
 ## Real Time Canny Edge Detection Output
 
@@ -590,20 +594,15 @@ Suggested images:
 
 ---
 
-
-
-
-
 # 17. Final Outcome
 
 ## 17.1 Final Description
 
 **Response:**  
-## 17.1 Final Description
-
-**Response:**  
 
 `The final version of the project is a real-time FPGA-based edge detection system implemented on the PYNQ-Z2 platform using Python/OpenCV preprocessing and a custom Verilog RTL accelerator. Live webcam frames are converted into grayscale images and transferred to the FPGA through AXI DMA, where Gaussian filtering and Canny-based edge detection using Sobel-based gradient computation are performed using DSP48 hardware blocks and streaming FPGA architecture. The processed edge-detected output is then displayed live with low latency, demonstrating real-time hardware-accelerated image processing using FPGA hardware/software co-design.`
+
+---
 
 ## 17.2 What Works Well
 
@@ -611,6 +610,7 @@ Suggested images:
 
 `The project successfully performs FPGA-based edge detection on live webcam input using AXI DMA communication and DSP48-accelerated Sobel processing. The custom Verilog RTL pipeline correctly performs Gaussian filtering, gradient computation, and threshold-based edge extraction in real time. The integration between Python/OpenCV preprocessing and FPGA hardware processing also worked reliably throughout testing and demonstration.`
 
+---
 
 ## 17.3 What Still Needs Improvement
 
@@ -618,6 +618,7 @@ Suggested images:
 
 `The Gaussian blur stage still requires optimization or reduction to preserve sharper edge details in the final output. The system also experiences slight processing delay during continuous real-time operation, which can be improved with further pipeline optimization.`
 
+---
 
 ## 17.4 What Changed From the Original Plan
 
@@ -637,6 +638,9 @@ How well did you manage time, tasks, and responsibilities?
 
 **Response:**  
 
+The team worked efficiently during integration, debugging, and FPGA implementation. Task distribution and collaboration during testing helped complete the project within the available time. Most delays occurred during DMA debugging and real-time pipeline testing, but responsibilities were managed effectively through continuous coordination.
+
+---
 
 ## 18.2 Technical Reflection
 
@@ -650,12 +654,15 @@ What did you learn about:
 
 **Response:**  
 
+The project provided practical experience with FPGA-based image processing, AXI DMA communication, Verilog RTL development, DSP48 hardware acceleration, and Python/OpenCV integration. The team also learned how hardware/software co-design improves real-time processing performance.
+
+---
 
 ## 18.3 Design Reflection
 
 What did you learn about:
 
-- designing ,
+- designing,
 - delight,
 - clarity,
 - physical interaction,
@@ -664,14 +671,17 @@ What did you learn about:
 
 **Response:**  
 
+The project highlighted the importance of simplifying system architecture, optimizing real-time pipelines, and continuously refining image processing quality through testing and iteration. Clear visualization and stable processing were important for improving the overall user experience.
 
-## 18.4 If You Had One More hour
+---
+
+## 18.4 If You Had One More Hour
 
 What would you improve next?
 
 **Response:**  
 
-` `
+`Further optimize the Gaussian blur stage and reduce real-time processing delay for sharper and faster edge detection output.`
 
 ---
 
@@ -696,11 +706,3 @@ Before submission, confirm that:
 - [x] Playtesting notes are included
 - [x] Build photos are included
 - [x] Final reflection is written
-<img width="1131" height="1600" alt="image" src="" />
-
----
-
-
----
-
-
