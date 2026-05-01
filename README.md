@@ -55,9 +55,9 @@ By the final review, this README should clearly show:
 
 # 1. Team Identity
 
-## 1.1 Sabbath
+## 1.1 Group Name
 
-`Project^2`
+`Sabbath`
 
 ## 1.2 Team Members
 
@@ -78,19 +78,16 @@ By the final review, this README should clearly show:
 
 ## 1.4 One-Line Pitch
 
-`A real-time FPGA-accelerated edge detection system using the PYNQ-Z2 board that processes live camera input and generates high-speed edge-enhanced output using DSP-based image processing.`
+`A real-time FPGA-accelerated Canny edge detection system using the PYNQ-Z2 board that processes live camera input and generates high-speed edge-enhanced output using DSP-based image processing.`
 
 ## 1.5 Expanded Project Idea
 
-- This project focuses on implementing a real-time edge detection system using an FPGA-based hardware accelerator on the PYNQ-Z2 platform. The system captures live video input from a webcam, preprocesses the image using Python and OpenCV inside a Jupyter Notebook environment, and sends the grayscale image to a custom FPGA IP core through AXI DMA for high-speed edge detection processing. The processed edge-detected output is then displayed in real time on an external monitor.
-
-- The main goal of the project is to demonstrate the power of FPGA-based parallel processing for image processing applications. Unlike CPU-based image processing, where pixels are processed sequentially, the FPGA processes multiple operations simultaneously using DSP48 hardware blocks, pipelining, and streaming architectures. The project implements Scharr/Canny-inspired edge detection using pure Verilog RTL design without relying on HLS tools, making it a fully hardware-oriented implementation.
-
-- The project combines computer vision and FPGA hardware acceleration into one integrated system. It demonstrates how hardware/software co-design can achieve low-latency real-time image processing suitable for robotics, surveillance, autonomous systems, medical imaging, and smart vision applications.
-
-
 **Response:**  
-`A projected and fully customizable time portal can transform engineering education into an immersive PUBG-style battlefield experience from the comfort of home. In this environment, students can learn engineering concepts by entering a virtual battlefield where challenges, obstacles, and missions are designed around real technical problems. Instead of passively studying theory, learners actively apply concepts such as electronics, coding, sensors, robotics, mechanics, and system design to complete missions, solve problems, and progress through different levels. This approach makes engineering education more interactive, engaging, and practical by combining gaming, simulation, and hands-on problem-solving in a familiar and exciting format.`
+`This project focuses on developing a real-time edge detection system using the PYNQ-Z2 FPGA platform to demonstrate high-speed hardware-accelerated image processing. The system captures live video input from a webcam and preprocesses the frames using Python and OpenCV inside a Jupyter Notebook environment. The grayscale image is then transferred to a custom FPGA IP core through AXI DMA, where edge detection is performed in real time using Sobel-based gradient computation and DSP48-accelerated convolution.
+
+Unlike traditional CPU-based image processing, where pixels are processed sequentially, the FPGA processes multiple operations simultaneously using pipelining, streaming architectures, and dedicated DSP hardware blocks. The system uses line buffers, sliding convolution windows, Gaussian filtering, gradient magnitude approximation, and dual-threshold edge extraction to generate a continuous real-time edge-enhanced video output with very low latency.
+
+By combining FPGA hardware acceleration with computer vision techniques, the project demonstrates how hardware/software co-design can improve image processing performance for real-time video processing, embedded systems, smart cameras, and basic computer vision applications.`
 
 ---
 
@@ -108,9 +105,8 @@ List what inspired the project.
 
 ## 2.2 Original Twist
 
-This project combines Scharr-based gradient computation with a Canny-inspired edge detection pipeline implemented on FPGA using pure Verilog RTL and DSP48 hardware acceleration on the PYNQ-Z2 platform. Unlike traditional software-based image processing, the system performs real-time edge detection using AXI DMA and streaming FPGA architecture for low-latency live video processing.
-
 **Response:**  
+This project combines a Canny-inspired edge detection pipeline with Sobel-based gradient computation implemented entirely on FPGA using pure Verilog RTL and DSP48 hardware acceleration on the PYNQ-Z2 platform. The system uses AXI DMA, streaming architectures, pipelined processing, and dedicated DSP hardware blocks to achieve low-latency real-time edge detection from live webcam input, creating an optimized FPGA-based image processing pipeline without relying on high-level synthesis tools.
 
 
 ---
@@ -119,11 +115,10 @@ This project combines Scharr-based gradient computation with a Canny-inspired ed
 
 ## 3.1 User Journey 
 
-The user starts the system through a Jupyter Notebook, and the webcam begins capturing live video. The normal camera feed quickly transforms into an edge-detected view, where only the outlines of objects are visible. As the user moves their hand or objects, the edges update instantly in real time. The FPGA processes each frame continuously, providing fast and smooth output with minimal delay.This system demonstrates how edge detection is used in real-world applications such as autonomous vehicles (lane detection), surveillance systems, medical imaging, robotics, and object detection systems.
 
 **Response:**  
 
-                                                  |
+The user starts the system using a Jupyter Notebook running on the PYNQ-Z2 board and connects a webcam for live video input. The webcam continuously captures video frames, and Python with OpenCV converts them into grayscale images before sending them to the FPGA through AXI DMA. Inside the FPGA, the custom Verilog edge detection IP processes the frames using Canny-based edge detection and DSP48-accelerated computation. The user can then observe the real-time edge-detected video output displayed live on the screen, where object boundaries and edges are highlighted continuously.                                              |
 
 
 
@@ -136,21 +131,13 @@ In this project, the system is considered usable when the live image feed is cap
 
 ## 4.2 Minimum Usable Version
 
-The smallest version of this project that still delivers the core experience consists of a basic real-time pipeline where a laptop camera captures live video, the image is converted to grayscale using Python/OpenCV, and the frames are sent to the FPGA through AXI DMA. The FPGA then performs simple Iimage's edge detection algorithm and returns the processed output, which is displayed on the screen in real time.
-
 **Response:**  
+The smallest version of this project that still delivers the core experience consists of a basic real-time pipeline where a laptop camera captures live video, the image is converted to grayscale using Python/OpenCV, and the frames are sent to the FPGA through AXI DMA. The FPGA then performs simple Iimage's edge detection algorithm and returns the processed output, which is displayed on the screen in real time.
 
 
 ## 4.3 Stretch Features
 
-- Implementation of full Canny edge detection (including non-maximum suppression and hysteresis)
-- Adjustable threshold values through user input
-- Support for multiple edge detection filters (Sobel, Scharr, Laplacian switching)
-- HDMI-based direct video output from FPGA
-- Real-time resolution scaling (720p / 1080p support)
-- On-screen display of FPS or performance metrics
-- Hardware-based grayscale conversion instead of software preprocessing
-- User interface for selecting modes or tuning parameters
+Optional advanced features for future improvement include complete Canny edge detection, improved Gaussian blur and noise reduction techniques, thinner edge generation using non-maximum suppression, adjustable threshold control, support for multiple edge detection filters, HDMI-based direct video output, higher-resolution processing, hardware-based grayscale conversion, and a user interface for selecting modes and tuning parameters.
 
 
 ---
@@ -199,9 +186,17 @@ Include:
 
 **Response:**  
 
+The system takes live video input from a webcam connected to a laptop or PC. Python and OpenCV running inside Jupyter Notebook preprocess the incoming video frames by converting them into grayscale images and transferring them to the PYNQ-Z2 FPGA through AXI DMA. Inside the FPGA, a custom Verilog edge detection module performs Gaussian filtering, Sobel-based edge detection, and threshold-based processing using DSP48 hardware acceleration. The processed edge-detected frames are then sent back and displayed live on the screen in real time. The physical setup includes a webcam, the PYNQ-Z2 FPGA board, a laptop or PC running the Jupyter environment, and a monitor for displaying the output. Jupyter Notebook acts as the main interface for controlling the FPGA overlay and managing the real-time image processing pipeline.
+
 ## 5.3 Input / Output Map
 
-| System Part                              | Type            | What It Does                                                               |
+| System Part                              | Type            | What It Does                         | Laptop Webcam | Input | Captures live video frames |
+| Python/OpenCV | Processing | Converts frames into grayscale and preprocesses the image |
+| AXI DMA | Data Transfer | Transfers image frames between the processor and FPGA |
+| FPGA Edge Detection IP | Processing | Performs Gaussian filtering, Sobel gradient computation, and edge detection |
+| DSP48 Blocks | Hardware Acceleration | Accelerates convolution and arithmetic operations |
+| Jupyter Notebook | Control Interface | Controls the FPGA overlay and processing pipeline |
+| Laptop Display | Output | Displays the real-time edge-detected video output |
 
 
 ---
@@ -239,12 +234,7 @@ Add a sketch with labels showing:
 
 ## 6.3 Approximate Dimensions
 
-| Dimension        | Value   |
-| ---------------- | ------- |
-| Length           | `16 cm` |
-| Width            | `16 cm` |
-| Height           | `8 cm`  |
-| Estimated weight | `400 g` |
+NA
 
 ---
 
@@ -254,19 +244,14 @@ Add a sketch with labels showing:
 
 | Component                 | Quantity | Purpose                               |
 | ------------------------- | --------:| ------------------------------------- |
-| `FPGA`                 | `1`      | `[Main controller]`                   |
-| `Laptop`    | `1`      | `As a camera device`                    |
+| `PYNQ-Z2 FPGA Board `       | `1`      | `[Main controller]`                   |
+| `Laptop `    | `1`      | `Handles webcam input and displays the processed output`|
 
 ## 7.2 Wiring Plan
 
 Describe the main electrical connections.
 
-**sample Response:**  
-`The RASPI is connected to the motor driver (L298N) using four GPIO pins (18,19; 22,23) to control motor direction (IN1, IN2, IN3, IN4). Two PWM-capable pins (ENA and ENB; 25 and 26) are connected to control the speed of each motor.
-
-The motors are connected to the output terminals of the motor driver. The motor driver is powered directly by the battery pack (higher voltage), while the ESP32 receives regulated 5V from the buck converter.
-
-All components share a common ground to ensure stable operation. The projector and camera are connected to the laptop, which handles tracking and game logic separately.`
+NA
 
 ## 7.3 Circuit Diagram/architecture diagram
 
@@ -281,10 +266,8 @@ Insert a hand-drawn or software-made circuit diagram.
 
 | Question         | Response                                                                                                                                          |
 | ---------------- | ------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Power source     | `Battery (Li-ion pack)`                                                                                                                           |
-| Voltage required | `~6–8.4V for motors (via driver), stepped down to 5V for ESP32 (buck converter)`                                                                  |
-| Current concerns | `Motors can draw high current under load, which may cause voltage drops affecting ESP32 and WiFi stability`                                       |
-| Safety concerns  | `Avoid over-discharging Li-ion batteries, ensure proper voltage regulation, prevent short circuits, and secure wiring to avoid loose connections` |
+                                                                                   
+| Voltage required | ` 5V DC for the PYNQ-Z2 board`     |                                                             
 
 ---
 
@@ -315,21 +298,27 @@ Include:
 **Response:**  
 `
 
-- **Sample Startup behavior:**  
-  The Raspi/FPGA initializes motor pins, PWM control, and starts a WiFi access point with a web server. The laptop initializes camera input, tracking system, and projection mapping.
-- **Input handling:**  
-  Movement commands are received from the laptop (pygame sends http requests)
-- **Sensor reading:**  
-  The camera continuously captures frames, and OpenCV detects ArUco markers to determine the car’s position and orientation.
-- **Decision logic:**  
-  The system maps the car’s position into a virtual coordinate system and checks for nearby obstacles or collisions. If movement is valid, the command is allowed; if not, it is blocked or replaced with a feedback action (like a slight shake).
-- **Output behavior:**  
-  The ESP32 drives the motors using PWM signals to control speed and direction. The projector displays the updated game environment, including obstacles, targets, and feedback visuals.
-- **Communication logic:**  
-  The laptop sends HTTP requests (e.g., `/forward`, `/left`) to the ESP32 over WiFi. The ESP32 parses these commands and executes motor actions.
-- **Reset behavior:**  
-  If no command is received within a short timeout, the ESP32 stops the motors. The game resets when a level is completed or restarted.`
+- **Startup behavior:**  
+  The system initializes the webcam, AXI DMA engine, FPGA overlay, and Jupyter Notebook environment. The custom Verilog edge detection IP bitstream is loaded onto the PYNQ-Z2 FPGA before starting real-time processing.
 
+- **Input handling:**  
+  Live video frames are continuously captured from the PC webcam using Python and OpenCV.
+
+- **Sensor reading:**  
+  The webcam continuously provides RGB image frames for real-time processing.
+
+- **Decision logic:**  
+  Python preprocesses the incoming frames by resizing and converting them into grayscale format. The grayscale images are then transferred to the FPGA through AXI DMA, where the custom Verilog IP performs Gaussian filtering, Sobel-based gradient computation, and threshold-based edge detection.
+
+- **Output behavior:**  
+  The FPGA generates the processed edge-detected output and transfers it back to the PC, where the output video is displayed live on the screen in real time.
+
+- **Communication logic:**  
+  AXI DMA is used for high-speed data transfer between the processor system and FPGA programmable logic. Python controls the DMA transfers and FPGA overlay through Jupyter Notebook.
+
+- **Reset behavior:**  
+     If frame capture or DMA transfer fails, the buffers are cleared and the processing pipeline restarts safely to continue real-time operation.
+     
 ## 8.3 Code Flowchart
 
 Insert a flowchart showing your code logic.
@@ -363,12 +352,10 @@ Suggested sequence:
 
 ## 9.2 Material Justification
 
-The PYNQ-Z2 board (xc7z020clg400-1) was selected as the main platform because it combines an FPGA with an embedded processor, allowing both hardware acceleration and software control in a single system. One of the key reasons for choosing this board is its built-in support for Jupyter Notebook, which simplifies development by enabling Python-based control, image preprocessing, and easy interaction with the FPGA through AXI DMA.
-
-This combination makes the development process faster and more accessible compared to traditional FPGA workflows, while still allowing low-level hardware implementation using Verilog in Vivado. Overall, the board provides an ideal balance between ease of use, flexibility, and powerful real-time processing capabilities required for this project.
-
 **Response:**  
-`DC motors (BO motors) were chosen instead of servos or steppers because the system requires continuous rotation for movement rather than precise angular control (Previously, we were considering using steppers as we were planning on tracking movement on the ESP using its relative position from an origin, but since we're using a camera now, this is not required). A motor driver (L298N) was used to allow bidirectional control and speed variation using PWM.`
+`The PYNQ-Z2 board (XC7Z020-1CLG400C) was selected as the main platform because it combines an FPGA with an embedded ARM processor, allowing both hardware acceleration and software control within a single system. One of the key reasons for choosing this board is its built-in support for Jupyter Notebook, which simplifies development by enabling Python-based control, real-time image preprocessing using OpenCV, and easy interaction with the FPGA through AXI DMA.
+
+This combination makes the development process faster and more accessible compared to traditional FPGA workflows while still allowing low-level hardware implementation using Verilog RTL in Vivado. The board also supports DSP48 hardware blocks and AXI streaming interfaces, making it well suited for real-time edge detection and FPGA-based image processing applications. A laptop webcam was used for live video input because it provides a simple and accessible real-time image source for testing and demonstration.`
 
 
 ## 9.3 Items You chose
@@ -391,7 +378,6 @@ This combination makes the development process faster and more accessible compar
 
 ## 9.5 Budget Reflection
 
-If the cost becomes too high, the system can be simplified by using a basic USB webcam instead of a high-end camera and relying on a laptop display instead of an external monitor or HDMI setup. Components like additional cables, adapters, or extra peripherals can be minimized or shared among team members. The processing setup can remain focused on the PYNQ-Z2 board without adding extra hardware modules, since it already provides both FPGA and processor capabilities. This keeps the project functional while reducing overall cost
 
 **Response:**  
 
@@ -550,21 +536,7 @@ Include:
 - revisions.
 
 **Response:**  
-`The fabrication process involved designing, manufacturing, assembling, and refining both the physical structure and electronic integration of the system.`
-
-`Design (CAD Modeling):
-The initial model was created using CAD software, where components were designed based on the actual dimensions of the electronic parts. This ensured accurate fitting and minimized errors during assembly.
-Cutting (Laser Cutting):
-The designed parts were fabricated using laser cutting techniques. Sheets were cut precisely according to the CAD model to create the structural base and mounts for components.`
-
-`Components were fixed using adhesives and mechanical supports. Certain parts were intentionally kept modular (not permanently fixed) to allow easy replacement and modification of electronics.
-Surface Finishing:
-Some parts were sanded to smooth rough edges after cutting. Sawdust mixed with adhesive was used to fill gaps and uneven edges, improving structural finish. The final structure was then painted for better aesthetics and durability.`
-
-`Environment Setup (Dark Room Fabrication):
-To enhance projection visibility, a controlled dark environment was created using Z-boards, paper sheets, and bedsheets. This minimized external light interference and improved projection clarity.
-Revisions and Iterations:
-Multiple adjustments were made throughout the process, including refining alignment, improving structural stability, repositioning components, and optimizing the interaction between the physical car and projected environment.`
+NA
 
 ## 16 Build Photos
 
