@@ -638,7 +638,6 @@ How well did you manage time, tasks, and responsibilities?
 
 **Response:**  
 
-The team worked efficiently during integration, debugging, and FPGA implementation. Task distribution and collaboration during testing helped complete the project within the available time. Most delays occurred during DMA debugging and real-time pipeline testing, but responsibilities were managed effectively through continuous coordination.
 
 ---
 
@@ -654,7 +653,9 @@ What did you learn about:
 
 **Response:**  
 
+```text
 The project provided practical experience with FPGA-based image processing, AXI DMA communication, Verilog RTL development, DSP48 hardware acceleration, and Python/OpenCV integration. The team also learned how hardware/software co-design improves real-time processing performance.
+```
 
 ---
 
@@ -681,7 +682,7 @@ What would you improve next?
 
 **Response:**  
 
-`Further optimize the Gaussian blur stage and reduce real-time processing delay for sharper and faster edge detection output.`
+`Further optimize the Gaussian blur stage for sharper and faster edge detection output.`
 
 ---
 
