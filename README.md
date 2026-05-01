@@ -322,35 +322,20 @@ Live video frames are continuously captured from the PC webcam using Python and 
 The webcam continuously provides RGB image frames for real-time processing.`
 
 `- Decision logic:
-Python preprocesses the incoming frames and transfers them to the FPGA through AXI DMA.`
+Python preprocesses the incoming frames using grayscale conversion, Gaussian blur, and image enhancement before transferring them to the FPGA through AXI DMA. The FPGA performs Sobel-based edge detection and threshold-based processing.`
 
 `- Output behavior:
-The FPGA returns the processed edge-detected output for live display.`
+The FPGA returns the processed edge-detected output, which is postprocessed and displayed live on the screen.`
 
 `- Communication logic:
-AXI DMA is used for high-speed transfer between the processor and FPGA.`
+AXI DMA is used for high-speed transfer between the processor and FPGA programmable logic.`
 
 `- Reset behavior:
-If DMA or frame capture fails, the processing pipeline safely restarts.`
+If DMA transfer or frame capture fails, the processing pipeline safely restarts to continue real-time operation.`
      
 ## 8.3 Code Flowchart
 
-Insert a flowchart showing your code logic.
-
-Suggested sequence:
-
-- start,
-- initialize,
-- wait for input,
-- read input,
-- decision,
-- trigger output,
-- repeat or reset,
-- error handling.
-
-**Insert image below:**  
-<img width="1600" height="1200" alt="image" src="" />
-<img width="1600" height="1200" alt="image" src="" />
+![Code Flowchart](images/Code_Algorithm.png)
 
 
 
