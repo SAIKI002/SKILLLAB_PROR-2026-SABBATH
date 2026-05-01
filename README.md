@@ -286,7 +286,7 @@ Insert a hand-drawn or software-made circuit diagram.
 
 ---
 
-# 8. Software Planning/
+# 8. Software Planning
 
 ## 8.1 Software Tools
 
@@ -397,6 +397,8 @@ Suggested sequence:
 
 
 **Response:**  
+
+`The project mainly uses the PYNQ-Z2 FPGA board and existing system components such as a laptop and webcam, so additional project cost was minimal. Since most required hardware was already available, no major budget reduction or simplification was necessary.`
 
 ---
 
