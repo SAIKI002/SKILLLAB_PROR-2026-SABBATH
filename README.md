@@ -222,8 +222,6 @@ Include:
 
 ## 6.1 Concept Architecture/sketch/schematic
 
-Add an early sketch of the full idea.
-
 ## System Block Design 
 
 ![System Block Design](images/system_block_design.jpeg)
@@ -232,13 +230,6 @@ Add an early sketch of the full idea.
 
 ## 6.2 Labeled Build Sketch/architecture/flow diagram/algorithm
 
-Add a sketch with labels showing:
-
-- structure,
-- electronics placement,
-- user touch points,
-- moving parts,
-- output elements.
 
 ## FPGA Edge Detection Architecture
 
