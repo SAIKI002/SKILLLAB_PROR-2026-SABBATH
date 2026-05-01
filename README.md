@@ -63,10 +63,10 @@ By the final review, this README should clearly show:
 
 | Name | Primary Role | Secondary Role | Strengths Brought to the Project |
 |---|---|---|---|
-| `Shlok Shety` | `[FPGA Hardware Integration]` | `[Image Processing]` | `System integration, FPGA setup, hardware coordination, technical communication` |
-| `Rahul Vidwans` | `[Image Processing Pipeline]` | `[Documentation / System Design]` | `OpenCV preprocessing, debugging, flowchart and architecture design` |
-| `Samruddhi Shimpi` | `[Algorithm Development]` | `[Project Documentation]` | `Edge detection workflow design, documentation structuring, implementation planning` |
-| `Atharva Chaudhari` | `[GitHub Management]` | `[Algorithm Assistance]` | `README organization, project formatting, and algorithm workflow support` |
+| `Shlok Shety` | `FPGA Hardware Integration` | `Image Processing` | `System integration, FPGA setup, hardware coordination, technical communication` |
+| `Rahul Vidwans` | `Image Processing Pipeline` | `Documentation / System Design` | `OpenCV preprocessing, debugging, flowchart and architecture design` |
+| `Samruddhi Shimpi` | `Algorithm Development` | `Project Documentation` | `Edge detection workflow design, documentation structuring, implementation planning` |
+| `Atharva Chaudhari` | `GitHub Management` | `Algorithm Assistance` | `README organization, project formatting, and algorithm workflow support` |
 
 ## 1.3 Project Title
 
