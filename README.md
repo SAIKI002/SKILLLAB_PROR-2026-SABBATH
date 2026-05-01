@@ -72,7 +72,6 @@ By the final review, this README should clearly show:
 
 `Realtime edge detection using FPGA`
 
-`(because Project-or)`
 
 <img width="1600" height="1131" alt="image" src="https://github.com/user-attachments/assets/c64bfbd4-b3b7-43d9-83ad-c203a5aa11bc" />
 
@@ -228,7 +227,7 @@ Include:
 
 Add an early sketch of the full idea.
 
-## System block Design 
+## System Block Design 
 
 ![System Block Design](images/system_block_design.jpeg)
 
@@ -263,6 +262,7 @@ NA
 | `PYNQ-Z2 FPGA Board `       | `1`      | `[Main controller]`                   |
 | `Laptop `    | `1`      | `Handles webcam input and displays the processed output`|
 
+
 ## 7.2 Wiring Plan
 
 Describe the main electrical connections.
@@ -280,10 +280,9 @@ Insert a hand-drawn or software-made circuit diagram.
 
 # 7.4. Power Plan
 
-| Question         | Response                                                                                                                                          |
-| ---------------- | ------------------------------------------------------------------------------------------------------------------------------------------------- |
-                                                                                   
-| Voltage required | ` 5V DC for the PYNQ-Z2 board`     |                                                             
+| Question | Response |
+|---|---|
+| Voltage required | `5V DC for the PYNQ-Z2 board` |                                                        
 
 ---
 
@@ -310,6 +309,7 @@ Include:
 - output behavior,
 - communication logic,
 - reset behavior.
+  
 **Response:**
 
 `- Startup behavior:
@@ -373,6 +373,7 @@ Suggested sequence:
 `This combination makes the development process faster and more accessible compared to traditional FPGA workflows while still allowing low-level hardware implementation using Verilog RTL in Vivado. The board also supports DSP48 hardware blocks and AXI streaming interfaces, making it well suited for real-time edge detection and FPGA-based image processing applications.`
 
 `A laptop webcam was used for live video input because it provides a simple and accessible real-time image source for testing and demonstration.`
+
 
 ## 9.3 Items You chose
 
@@ -571,6 +572,7 @@ Suggested images:
 
 ![Canny Test Output](images/canny_test_output.jpeg)
 
+## Real Time Canny Edge Detection Output
 
 [▶ Live Real-Time FPGA Output](images/Live_test_output.mp4)
 
