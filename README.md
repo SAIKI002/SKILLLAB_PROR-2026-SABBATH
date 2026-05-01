@@ -212,18 +212,16 @@ Include:
 ## 5.3 Input / Output Map
 
 ```text
-| System Part             | Type                  | What It Does                                              |
-|-------------------------|-----------------------|-----------------------------------------------------------|
-| Laptop Webcam           | Input                 | Captures live video frames                                |
-| Python/OpenCV           | Processing            | Converts frames into grayscale and preprocesses the image |
-| AXI DMA                 | Data Transfer         | Transfers image frames between the processor and FPGA     |
-| FPGA Edge Detection IP  | Processing            | Performs edge detection operations                        |
-| DSP48 Blocks            | Hardware Acceleration | Accelerates convolution and arithmetic operations         |
-| Jupyter Notebook        | Control Interface     | Controls the FPGA overlay and processing pipeline         |
-| Laptop Display          | Output                | Displays the real-time edge-detected video output         |
+| System Part            | Type                  | What It Does                                              |
+|------------------------|-----------------------|-----------------------------------------------------------|
+| Laptop Webcam          | Input                 | Captures live video frames                                |
+| Python/OpenCV          | Processing            | Converts frames into grayscale and preprocesses the image |
+| AXI DMA                | Data Transfer         | Transfers image frames between the processor and FPGA     |
+| FPGA Edge Detection IP | Processing            | Performs edge detection operations                        |
+| DSP48 Blocks           | Hardware Acceleration | Accelerates convolution and arithmetic operations         |
+| Jupyter Notebook       | Control Interface     | Controls the FPGA overlay and processing pipeline         |
+| Laptop Display         | Output                | Displays the real-time edge-detected video output         |
 ```
-
----
 
 # 6. System Design, Sketches and Visual Planning 
 
@@ -231,14 +229,7 @@ Include:
 
 Add an early sketch of the full idea.
 
-**Insert image below:**  
-`[Upload image and link here]`
-
-Example:
-
-```md
-
-```
+![System Block Design](images/system_block_design.jpeg)
 
 
 
@@ -252,9 +243,7 @@ Add a sketch with labels showing:
 - moving parts,
 - output elements.
 
-**Insert image below:**  
-`[Upload image and link here]`
-<img width="1600" height="1200" alt="image" src="https://github.com/user-attachments/assets/95637f31-b4e7-4427-a9e1-4b63fbeb0ac5" />
+![FPGA Edge Detection Architecture](images/fpga_edge_detection_architecture.png)
 
 ## 6.3 Approximate Dimensions
 
@@ -574,7 +563,18 @@ Suggested images:
 - mechanism test,
 - app screenshot,
 - final build.
-- <img width="960" height="1280" alt="WhatsApp Image 2026-04-24 at 9 46 02 AM (1)" src="https://github.com/user-attachments/assets/74baa570-5770-483e-be6d-d2f03386e37c" />
+- 
+## Canny Edge Detection Test Output
+
+![Canny Test Output](images/canny_test_output.jpeg)
+
+---
+
+## FPGA Edge Detection Architecture
+
+![FPGA Architecture](images/fpga_edge_detection_architecture.png)
+
+---
 
 
 
