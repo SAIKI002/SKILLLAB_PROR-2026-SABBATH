@@ -61,12 +61,12 @@ By the final review, this README should clearly show:
 
 ## 1.2 Team Members
 
-| Name                  | Primary Role                    | Secondary Role   | Strengths Brought to the Project |
-| --------------        | ------------------------------- | --------------   | -------------------------------- |
-| `Shlok Shety` | `[Electronics / Coding / App ]` | `Documentation`  | `Documentation, Gift of Gab `|
-| `Rahul Vidwans`        | `[Electronics / Fabrication]`   | `[Coding]`       | `Material Handling, Hardware`    |
-| `Samruddhi Shimpi`        | `[Electronics / Fabrication]`   | `[Coding]`       | `Material Handling, Hardware`    |
-| `Atharva Chaudhari`        | `[Electronics / Fabrication]`   | `[Coding]`       | `Material Handling, Hardware`    |
+| Name | Primary Role | Secondary Role | Strengths Brought to the Project |
+|---|---|---|---|
+| `Shlok Shety` | `[FPGA Hardware Integration]` | `[Image Processing]` | `System integration, FPGA setup, hardware coordination, technical communication` |
+| `Rahul Vidwans` | `[Image Processing Pipeline]` | `[Documentation / System Design]` | `OpenCV preprocessing, debugging, flowchart and architecture design` |
+| `Samruddhi Shimpi` | `[Algorithm Development]` | `[Project Documentation]` | `Edge detection workflow design, documentation structuring, implementation planning` |
+| `Atharva Chaudhari` | `[GitHub Management]` | `[Algorithm Assistance]` | `README organization, project formatting, and algorithm workflow support` |
 
 ## 1.3 Project Title
 
@@ -95,15 +95,12 @@ By the final review, this README should clearly show:
 
 ## 2.1 References
 
-List what inspired the project.
-
-| Source Type | Title / Link                                                        | What Inspired You                                                                         |
-| ----------- | ------------------------------------------------------------------- | ----------------------------------------------------------------------------------------- |
-| `[Video]`   | `https://youtu.be/Ut5s4rImEhI?si=zgon5YOzGiYfu-Zj` | `How the company is using it's tech to perform image scans` |
-|             |                                                                     |                                                                                           |
-|             |                                                                     |                                                                                           |
-
-## 2.2 Original Twist
+| Source Type | Title / Link | What Inspired You |
+|---|---|---|
+| `[Video]` | `https://youtu.be/Ut5s4rImEhI?si=zgon5YOzGiYfu-Zj` | `Real-time image scanning and hardware-accelerated computer vision systems` |
+| `[Research]` | `Canny Edge Detection Algorithm` | `Understanding Gaussian filtering, Sobel-based gradient computation, and threshold-based edge extraction` |
+| `[Documentation]` | `PYNQ-Z2 and Vivado AXI DMA Tutorials` | `Learning FPGA-based image processing, AXI streaming, and hardware/software co-design` |
+| `[Library]` | `OpenCV Documentation` | `Image preprocessing, grayscale conversion, and webcam frame handling` |
 
 **Response:**
 
@@ -384,19 +381,9 @@ If DMA transfer or frame capture fails, the processing pipeline safely restarts 
 
 ## 10.1 Team Working Agreement
 
-Write how your team will work together.
-
-Include:
-
-- how tasks are divided,
-- how decisions are made,
-- how progress will be checked,
-- what happens if a task is delayed,
-- how documentation will be maintained.
-
 **Response:**  
 
-Tasks were divided based on software, FPGA design, testing, and documentation responsibilities. Major technical decisions were discussed and finalized together after testing feasibility on the PYNQ-Z2 platform. Progress was continuously checked during implementation and debugging sessions. If a task was delayed, both team members worked together to resolve the issue and continue integration. Documentation was updated throughout development to maintain proper records of testing, architecture, and implementation details.
+`Tasks were divided based on hardware setup, FPGA development, image processing, algorithm design, testing, and documentation responsibilities. Major technical decisions were discussed together after verifying feasibility and debugging results. Progress was checked continuously during implementation and integration sessions. If a task was delayed, team members collaborated to resolve issues and maintain workflow continuity. Documentation and GitHub updates were maintained throughout development to ensure proper tracking of architecture, testing, and implementation details.`
 
 ---
 
