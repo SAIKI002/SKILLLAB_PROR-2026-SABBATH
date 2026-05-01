@@ -107,7 +107,7 @@ List what inspired the project.
 
 **Response:**
 
-`This project combines a Canny-inspired edge detection pipeline with Sobel-based gradient computation implemented entirely on FPGA using pure Verilog RTL and DSP48 hardware acceleration on the PYNQ-Z2 platform. The system uses AXI DMA, streaming architectures, pipelined processing, and dedicated DSP hardware blocks to achieve low-latency real-time edge detection from live webcam input, creating an optimized FPGA-based image processing pipeline without relying on high-level synthesis tools.`
+`This project combines a Canny-inspired edge detection pipeline with Canny-based gradient computation implemented entirely on FPGA using pure Verilog RTL and DSP48 hardware acceleration on the PYNQ-Z2 platform. The system uses AXI DMA, streaming architectures, pipelined processing, and dedicated DSP hardware blocks to achieve low-latency real-time edge detection from live webcam input, creating an optimized FPGA-based image processing pipeline without relying on high-level synthesis tools.`
 
 ---
 
@@ -203,7 +203,7 @@ Include:
 
 `The system takes live video input from a webcam connected to a laptop or PC. Python and OpenCV running inside Jupyter Notebook preprocess the incoming video frames by converting them into grayscale images and transferring them to the PYNQ-Z2 FPGA through AXI DMA.`
 
-`Inside the FPGA, a custom Verilog edge detection module performs Gaussian filtering, Sobel-based edge detection, and threshold-based processing using DSP48 hardware acceleration. The processed edge-detected frames are then sent back and displayed live on the screen in real time.`
+`Inside the FPGA, a custom Verilog edge detection module performs Gaussian filtering, Canny-based edge detection using Sobel-based gradient computation, and threshold-based processing using DSP48 hardware acceleration. The processed edge-detected frames are then sent back and displayed live on the screen in real time.`
 
 `The physical setup includes a webcam, the PYNQ-Z2 FPGA board, a laptop or PC running the Jupyter environment, and a monitor for displaying the output. Jupyter Notebook acts as the main interface for controlling the FPGA overlay and managing the real-time image processing pipeline.`
 
@@ -384,16 +384,14 @@ Suggested sequence:
 
 ## 9.4 Budget Summary
 
-| Budget Item           | Estimated Cost              |
-| --------------------- | ---------------------------:|
-| Electronics           | `[400]`                     |
-| Mechanical parts      | `[200]`                     |
-| Fabrication materials | `[0 (Available on campus)]` |
-| Purchased extras      | `[0]`                       |
-| Contingency           | `[300]`                     |
-| **Total**             | `[900]`                     |
-
-## 9.5 Budget Reflection
+| Budget Item | Estimated Cost |
+|---|---:|
+| Electronics | `₹25,000` |
+| Mechanical parts | `N/A` |
+| Fabrication materials | `N/A` |
+| Purchased extras | `₹0` |
+| Contingency | `₹0` |
+| **Total** | `₹25,000` |
 
 
 **Response:**  
@@ -418,13 +416,20 @@ Include:
 
 **Response:**  
 
+```markdown id="x8m4qp"
 
 ## 10.2 Task Breakdown
 
-| Task ID | Task                    | Owner    | Estimated Hours | Deadline     | Dependency | Status |
-| ------- | ----------------------- | -------- | ---------------:| ------------ | ---------- | ------ |
-| T1      | `[Finalize concept]`    | `[Both]` | `2`             | `1st April`  | `None`     | `Done` |
-
+| Task ID | Task | Estimated Hours | Deadline | Dependency | Status |
+|---|---|---:|---|---|---|
+| T1 | Finalizing Concept | 0.5 | 30 April 2026 | None | Done |
+| T2 | Webcam Scene Setup | 0.5 | 30 April 2026 | T1 | Done |
+| T3 | Webcam Capture Code | 0.5 | 30 April 2026 | T2 | Done |
+| T4 | Python/OpenCV Pipeline Code | 1 | 30 April 2026 | T3 | Done |
+| T5 | FPGA Verilog RTL Code | 1.5 | 30 April 2026 | T4 | Done |
+| T6 | AXI DMA Integration | 0.5 | 30 April 2026 | T5 | Done |
+| T7 | Debugging and Testing | 0.5 | 30 April 2026 | T6 | Done |
+| T8 | Documentation | 0.5 | 1 May 2026 | T7 | Ongoing |
 
 ## 10.3 Responsibility Split
 
@@ -462,7 +467,7 @@ Expected outcomes:
 - [x] Electronics tests completed
 - [ ] CAD / structure planning completed
 - [ ] App UI started if needed
-- [x] Mechanical concept tested
+- [ ] Mechanical concept tested
 - [x] Main subsystems partially working
 
 ### Bi Hour 3 — Integrate
@@ -485,32 +490,31 @@ Expected outcomes:
 - [x] Documentation completed
 - [x] Final build ready
 
-## 12.2  Update Log
+## 12.2 Update Log
 
-| Days   | Planned Goal   | What Actually Happened | What Changed   | Next Steps     |
-| ------ | -------------- | ---------------------- | -------------- | -------------- |
-| Day 1 | `[Write here]` | `[Write here]`         | `[Write here]` | `[Write here]` |
-| Day 2 | `[Write here]` | `[Write here]`         | `[Write here]` | `[Write here]` |
-| Day 3 | `[Write here]` | `[Write here]`         | `[Write here]` | `[Write here]` |
-| Day 4 | `[Write here]` | `[Write here]`         | `[Write here]` | `[Write here]` |
-
+| Days | Planned Goal | What Actually Happened | What Changed | Next Steps |
+|---|---|---|---|---|
+| 30 April 2026 | Finalize concept | Selected FPGA edge detection workflow | Shifted to Sobel-based pipeline | Start webcam setup |
+| 30 April 2026 | Develop preprocessing pipeline | Implemented webcam capture and grayscale conversion | Added image preprocessing | Integrate FPGA processing |
+| 30 April 2026 | Develop FPGA IP | Implemented Verilog edge detection module | Optimized DSP48 processing | Test DMA transfers |
+| 30 April 2026 | Debug and testing | Achieved real-time edge detection output | Improved edge clarity | Complete documentation |
 ---
 
 # 13. Risks and Unknowns
 
 ## 13.1 Risk Register
 
-| Risk                                                            | Type         | Likelihood | Impact   | Mitigation Plan                                                                       | Owner                |
-| --------------------------------------------------------------- | ------------ | ---------- | -------- | ------------------------------------------------------------------------------------- | -------------------- |
-| WiFi connection between laptop and ESP32 becomes unstable       | `Technical`  | `Medium`   | `High`   | Keep ESP32 close, ensure stable power supply, reduce network load, add fail-safe stop | `[Gopal]`           |
+| Risk | Type | Likelihood | Impact | Mitigation Plan | Owner |
+|---|---|---|---|---|---|
+| AXI DMA transfer failure or frame delay | `Technical` | `Medium` | `High` | Verify DMA configuration, reset buffers properly, and optimize data transfer pipeline | `Both` |
+| Noisy or unclear edge output | `Technical` | `Medium` | `Medium` | Improve preprocessing, Gaussian filtering, and threshold tuning | `Both` |
 
 
 ## 13.2 Biggest Unknown Right Now
 
-What is the single biggest uncertainty in your project at this stage?
-
 **Response:**  
 
+`The biggest uncertainty in the project is maintaining stable real-time performance while continuously transferring and processing live video frames through AXI DMA without latency or frame drops.`
 
 ---
 
@@ -518,15 +522,21 @@ What is the single biggest uncertainty in your project at this stage?
 
 ## 14.1 Technical Testing Plan
 
-| What Needs Testing     | How You Will Test It                                                                 | Success Condition                                                                                    |
-| ---------------------- | ------------------------------------------------------------------------------------ | ---------------------------------------------------------------------------------------------------- |
-| `[Wifi connection]`    | `[Check if motor spins via app button]`                                              | `[Both motors accurately respond to wifi signals]`                                                   |
-                       |
+| What Needs Testing | How You Will Test It | Success Condition |
+|---|---|---|
+| Webcam frame capture | Check live webcam input through Python/OpenCV | Frames are captured continuously without interruption |
+| AXI DMA transfer | Transfer grayscale frames between PS and FPGA | Frames transfer successfully without data corruption |
+| FPGA edge detection IP | Process live frames through the Verilog RTL module | Correct edge-detected output is generated |
+| DSP48-based processing | Verify convolution and Sobel operations in Vivado | DSP operations function correctly during processing |
+| Real-time processing | Run continuous live video pipeline | Output displays smoothly with low latency |
+                       
 ## 14.2 Testing and Debugging Log
 
-| Date          | Problem Found                         | Type         | What You Tried                                | Result               | Next Action                                    |
-| ------------- | ------------------------------------- | ------------ | --------------------------------------------- | -------------------- | ---------------------------------------------- |
-| `18th April`  | `Car not balancing properly`          | `Mechanical` | `Add low-friction caster support to one side` | `Worked`             | `improve caster structure`                     |
+| Date | Problem Found | Type | What You Tried | Result | Next Action |
+|---|---|---|---|---|---|
+| `30 April 2026` | `DMA transfer was not returning correct frames` | `Technical` | `Checked AXI DMA configuration and buffer allocation` | `Worked` | `Optimize transfer stability` |
+| `30 April 2026` | `Edge output contained noise` | `Technical` | `Added Gaussian blur and postprocessing filters` | `Improved output quality` | `Tune threshold values further` |
+| `30 April 2026` | `Frame delay during live processing` | `Technical` | `Optimized streaming pipeline and preprocessing` | `Reduced latency` | `Improve real-time performance` |
 
 
 ## 14.3 Playtesting Notes
@@ -588,24 +598,32 @@ Suggested images:
 
 ## 17.1 Final Description
 
-Describe the final version of your project.
+**Response:**  
+## 17.1 Final Description
 
 **Response:**  
 
+`The final version of the project is a real-time FPGA-based edge detection system implemented on the PYNQ-Z2 platform using Python/OpenCV preprocessing and a custom Verilog RTL accelerator. Live webcam frames are converted into grayscale images and transferred to the FPGA through AXI DMA, where Gaussian filtering and Canny-based edge detection using Sobel-based gradient computation are performed using DSP48 hardware blocks and streaming FPGA architecture. The processed edge-detected output is then displayed live with low latency, demonstrating real-time hardware-accelerated image processing using FPGA hardware/software co-design.`
 
 ## 17.2 What Works Well
 
+**Response:**  
+
+`The project successfully performs FPGA-based edge detection on live webcam input using AXI DMA communication and DSP48-accelerated Sobel processing. The custom Verilog RTL pipeline correctly performs Gaussian filtering, gradient computation, and threshold-based edge extraction in real time. The integration between Python/OpenCV preprocessing and FPGA hardware processing also worked reliably throughout testing and demonstration.`
 
 
 ## 17.3 What Still Needs Improvement
 
+**Response:**  
+
+`The Gaussian blur stage still requires optimization or reduction to preserve sharper edge details in the final output. The system also experiences slight processing delay during continuous real-time operation, which can be improved with further pipeline optimization.`
+
 
 ## 17.4 What Changed From the Original Plan
 
-How did the project change from the initial idea?
-
 **Response:**  
 
+`The original plan was to display the processed FPGA output on a separate monitor using HDMI output directly from the system. However, due to time constraints and the additional time required for debugging, the project was modified to display the real-time edge-detected output directly on the laptop screen using the current software-based display pipeline.`
 
 ---
 
