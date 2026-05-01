@@ -397,12 +397,12 @@ If DMA transfer or frame capture fails, the processing pipeline safely restarts 
 
 | Area | Main Owner | Support Owner |
 |---|---|---|
-| Concept | `[Mrugendra]` | `[Jyoti]` |
-| Electronics | `[]` | `[]` |
-| Coding | `[]` | `[]` |
-| FPGA Design | `[]` | `[]` |
-| Testing | `[]` | `[]` |
-| Documentation | `[]` | `[]` |
+| Planning | `All Members` | `-` |
+| FPGA Development | `Shlok Shety` | `Samruddhi Shimpi` |
+| Image Processing | `Rahul Vidwans` | `Shlok Shety` |
+| Algorithm Development | `Samruddhi Shimpi` | `Atharva Chaudhari` |
+| Testing and Debugging | `Shlok Shetty` | `Rahul Vidwans` |
+| Documentation and GitHub | `Atharva Chaudhari` | `Samruddhi Shimpi` |
 
 ---
 
