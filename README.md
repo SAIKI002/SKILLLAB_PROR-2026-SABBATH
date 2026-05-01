@@ -83,7 +83,6 @@ By the final review, this README should clearly show:
 ## 1.5 Expanded Project Idea
 
 **Response:**  
-**Response:**
 
 `This project focuses on developing a real-time edge detection system using the PYNQ-Z2 FPGA platform to demonstrate high-speed hardware-accelerated image processing. The system captures live video input from a webcam and preprocesses the frames using Python and OpenCV inside a Jupyter Notebook environment. The grayscale image is then transferred to a custom FPGA IP core through AXI DMA, where edge detection is performed in real time using Sobel-based gradient computation and DSP48-accelerated convolution.`
 
@@ -203,8 +202,6 @@ Include:
 
 **Response:**  
 
-T**Response:**
-
 `The system takes live video input from a webcam connected to a laptop or PC. Python and OpenCV running inside Jupyter Notebook preprocess the incoming video frames by converting them into grayscale images and transferring them to the PYNQ-Z2 FPGA through AXI DMA.`
 
 `Inside the FPGA, a custom Verilog edge detection module performs Gaussian filtering, Sobel-based edge detection, and threshold-based processing using DSP48 hardware acceleration. The processed edge-detected frames are then sent back and displayed live on the screen in real time.`
@@ -321,31 +318,28 @@ Include:
 - output behavior,
 - communication logic,
 - reset behavior.
-
 **Response:**
 
-```text
-- Startup behavior:
-  The system initializes the webcam, AXI DMA engine, FPGA overlay, and Jupyter Notebook environment. The custom Verilog edge detection IP bitstream is loaded onto the PYNQ-Z2 FPGA before starting real-time processing.
+`- Startup behavior:
+The system initializes the webcam, AXI DMA engine, FPGA overlay, and Jupyter Notebook environment.`
 
-- Input handling:
-  Live video frames are continuously captured from the PC webcam using Python and OpenCV.
+`- Input handling:
+Live video frames are continuously captured from the PC webcam using Python and OpenCV.`
 
-- Sensor reading:
-  The webcam continuously provides RGB image frames for real-time processing.
+`- Sensor reading:
+The webcam continuously provides RGB image frames for real-time processing.`
 
-- Decision logic:
-  Python preprocesses the incoming frames by resizing and converting them into grayscale format. The grayscale images are then transferred to the FPGA through AXI DMA, where the custom Verilog IP performs Gaussian filtering, Sobel-based gradient computation, and threshold-based edge detection.
+`- Decision logic:
+Python preprocesses the incoming frames and transfers them to the FPGA through AXI DMA.`
 
-- Output behavior:
-  The FPGA generates the processed edge-detected output and transfers it back to the PC, where the output video is displayed live on the screen in real time.
+`- Output behavior:
+The FPGA returns the processed edge-detected output for live display.`
 
-- Communication logic:
-  AXI DMA is used for high-speed data transfer between the processor system and FPGA programmable logic. Python controls the DMA transfers and FPGA overlay through Jupyter Notebook.
+`- Communication logic:
+AXI DMA is used for high-speed transfer between the processor and FPGA.`
 
-- Reset behavior:
-  If frame capture or DMA transfer fails, the buffers are cleared and the processing pipeline restarts safely to continue real-time operation.
-```
+`- Reset behavior:
+If DMA or frame capture fails, the processing pipeline safely restarts.`
      
 ## 8.3 Code Flowchart
 
@@ -382,14 +376,11 @@ Suggested sequence:
 
 **Response:**
 
-```text
-The PYNQ-Z2 board (XC7Z020-1CLG400C) was selected as the main platform because it combines an FPGA with an embedded ARM processor, allowing both hardware acceleration and software control within a single system. One of the key reasons for choosing this board is its built-in support for Jupyter Notebook, which simplifies development by enabling Python-based control, real-time image preprocessing using OpenCV, and easy interaction with the FPGA through AXI DMA.
+`The PYNQ-Z2 board (XC7Z020-1CLG400C) was selected as the main platform because it combines an FPGA with an embedded ARM processor, allowing both hardware acceleration and software control within a single system. One of the key reasons for choosing this board is its built-in support for Jupyter Notebook, which simplifies development by enabling Python-based control, real-time image preprocessing using OpenCV, and easy interaction with the FPGA through AXI DMA.`
 
-This combination makes the development process faster and more accessible compared to traditional FPGA workflows while still allowing low-level hardware implementation using Verilog RTL in Vivado. The board also supports DSP48 hardware blocks and AXI streaming interfaces, making it well suited for real-time edge detection and FPGA-based image processing applications.
+`This combination makes the development process faster and more accessible compared to traditional FPGA workflows while still allowing low-level hardware implementation using Verilog RTL in Vivado. The board also supports DSP48 hardware blocks and AXI streaming interfaces, making it well suited for real-time edge detection and FPGA-based image processing applications.`
 
-A laptop webcam was used for live video input because it provides a simple and accessible real-time image source for testing and demonstration.
-```
-
+`A laptop webcam was used for live video input because it provides a simple and accessible real-time image source for testing and demonstration.`
 
 ## 9.3 Items You chose
 
