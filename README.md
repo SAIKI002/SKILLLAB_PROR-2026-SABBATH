@@ -439,12 +439,12 @@ Tasks were divided based on software, FPGA design, testing, and documentation re
 
 | Area | Main Owner | Support Owner |
 |---|---|---|
-| Concept | `Mrugendra` | `Jyoti` |
-| Electronics | `Mrugendra` | `Jyoti` |
-| Coding | `Jyoti` | `Mrugendra` |
-| FPGA Design | `Mrugendra` | `Jyoti` |
-| Testing | `Jyoti` | `Mrugendra` |
-| Documentation | `Both` | `-` |
+| Concept | `[Mrugendra]` | `[Jyoti]` |
+| Electronics | `[]` | `[]` |
+| Coding | `[]` | `[]` |
+| FPGA Design | `[]` | `[]` |
+| Testing | `[]` | `[]` |
+| Documentation | `[]` | `[]` |
 
 ---
 
