@@ -554,7 +554,7 @@ Expected outcomes:
 
 | Tester | What They Did | What Confused Them | What They Enjoyed | What You Will Change |
 |---|---|---|---|---|
-| `Gopal` | `Tested the live FPGA edge detection output` | `Some edges appeared noisy under low lighting` | `Liked the real-time edge detection and low latency output` | `Improve preprocessing and threshold tuning` |
+| `[]` | `[]` | `[]` | `[]` | `[]` |
 
 ---
 
