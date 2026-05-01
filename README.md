@@ -271,12 +271,7 @@ NA
 
 ## 7.3 Circuit Diagram/architecture diagram
 
-Insert a hand-drawn or software-made circuit diagram.
-
-**Insert image below:**  
-`[Upload image and link here]`
-<img width="867" height="1156" alt="" src="" />
-
+NA
 
 # 7.4. Power Plan
 
@@ -537,9 +532,7 @@ Expected outcomes:
 
 ## 14.3 Playtesting Notes
 
-| Tester | What They Did | What Confused Them | What They Enjoyed | What You Will Change |
-|---|---|---|---|---|
-| `[]` | `[]` | `[]` | `[]` | `[]` |
+NA
 
 ---
 
